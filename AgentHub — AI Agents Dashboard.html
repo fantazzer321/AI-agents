@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///Users/Ihlas/Downloads/my-dash/site/index.html#/login -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentHub — AI Agents Dashboard</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 32 32&#39;%3E%3Crect width=&#39;32&#39; height=&#39;32&#39; rx=&#39;8&#39; fill=&#39;%234F46E5&#39;/%3E%3Cpath d=&#39;M16 7.5a1.5 1.5 0 0 1 1.5 1.5v1h2.25A3.25 3.25 0 0 1 23 13.25v6.5A3.25 3.25 0 0 1 19.75 23h-7.5A3.25 3.25 0 0 1 9 19.75v-6.5A3.25 3.25 0 0 1 12.25 10h2.25V9A1.5 1.5 0 0 1 16 7.5Z&#39; fill=&#39;white&#39;/%3E%3Ccircle cx=&#39;13.5&#39; cy=&#39;15.5&#39; r=&#39;1.4&#39; fill=&#39;%234F46E5&#39;/%3E%3Ccircle cx=&#39;18.5&#39; cy=&#39;15.5&#39; r=&#39;1.4&#39; fill=&#39;%234F46E5&#39;/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./AgentHub — AI Agents Dashboard_files/css2" rel="stylesheet">
+    <script src="./AgentHub — AI Agents Dashboard_files/saved_resource"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: { DEFAULT: '#4f46e5', hover: '#4338ca', soft: '#eef2ff' },
+            },
+            fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+            keyframes: {
+              'fade-in': { from: { opacity: '0' }, to: { opacity: '1' } },
+              'slide-up': {
+                from: { opacity: '0', transform: 'translateY(10px)' },
+                to: { opacity: '1', transform: 'none' },
+              },
+              'pop-in': {
+                from: { opacity: '0', transform: 'scale(0.96)' },
+                to: { opacity: '1', transform: 'scale(1)' },
+              },
+              'dot-bounce': {
+                '0%,80%,100%': { transform: 'translateY(0)', opacity: '0.45' },
+                '40%': { transform: 'translateY(-5px)', opacity: '1' },
+              },
+            },
+            animation: {
+              'fade-in': 'fade-in 0.3s ease-out both',
+              'slide-up': 'slide-up 0.35s cubic-bezier(0.16,1,0.3,1) both',
+              'pop-in': 'pop-in 0.18s ease-out both',
+              'dot-bounce': 'dot-bounce 1.2s infinite ease-in-out',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+    </style>
+  <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, ui-sans-serif, system-ui, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-bottom-32{bottom:-8rem}.-left-16{left:-4rem}.-right-24{right:-6rem}.-top-24{top:-6rem}.mb-8{margin-bottom:2rem}.mt-1\.5{margin-top:0.375rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-5{height:1.25rem}.h-9{height:2.25rem}.h-96{height:24rem}.h-\[15px\]{height:15px}.h-\[18px\]{height:18px}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-1\/2{width:50%}.w-5{width:1.25rem}.w-9{width:2.25rem}.w-96{width:24rem}.w-\[15px\]{width:15px}.w-\[18px\]{width:18px}.w-full{width:100%}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}@keyframes slide-up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}.animate-slide-up{animation:slide-up 0.35s cubic-bezier(0.16,1,0.3,1) both}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-brand{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-indigo-400\/20{background-color:rgb(129 140 248 / 0.2)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/10{background-color:rgb(255 255 255 / 0.1)}.bg-white\/15{background-color:rgb(255 255 255 / 0.15)}.p-12{padding:3rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[15px\]{font-size:15px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-indigo-100{--tw-text-opacity:1;color:rgb(224 231 255 / var(--tw-text-opacity, 1))}.text-indigo-200\/80{color:rgb(199 210 254 / 0.8)}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-\[0\.18\]{opacity:0.18}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-indigo-600\/20{--tw-shadow-color:rgb(79 70 229 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-inset{--tw-ring-inset:inset}.ring-white\/15{--tw-ring-color:rgb(255 255 255 / 0.15)}.blur-3xl{--tw-blur:blur(64px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.placeholder\:text-gray-400::placeholder{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.hover\:bg-brand-hover:hover{--tw-bg-opacity:1;background-color:rgb(67 56 202 / var(--tw-bg-opacity, 1))}.focus\:border-brand:focus{--tw-border-opacity:1;border-color:rgb(79 70 229 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-brand\/30:focus{--tw-ring-color:rgb(79 70 229 / 0.3)}.active\:scale-\[0\.98\]:active{--tw-scale-x:0.98;--tw-scale-y:0.98;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 1024px){.lg\:block{display:block}.lg\:hidden{display:none}.lg\:w-1\/2{width:50%}}</style></head>
+  <body class="bg-gray-50 text-gray-900 antialiased">
+    <div id="app"><div class="flex min-h-screen bg-white">
+          <aside class="relative hidden w-1/2 overflow-hidden bg-brand lg:block">
+            <div class="absolute inset-0 opacity-[0.18]" style="background-image:radial-gradient(circle at 1px 1px, white 1px, transparent 0);background-size:28px 28px;"></div>
+            <div class="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-white/10 blur-3xl"></div>
+            <div class="absolute -bottom-32 -left-16 h-96 w-96 rounded-full bg-indigo-400/20 blur-3xl"></div>
+            <div class="relative flex h-full flex-col justify-between p-12">
+              <div class="flex items-center gap-2.5 text-white"><span class="flex h-9 w-9 items-center justify-center rounded-xl bg-white/15"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bot" aria-hidden="true" class="lucide lucide-bot w-5 h-5"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg></span><span class="text-xl font-bold tracking-tight">AgentHub</span></div>
+              <div class="max-w-md">
+                <h1 class="text-4xl font-bold leading-tight tracking-tight text-white">Your AI agents, all in one place.</h1>
+                <p class="mt-4 text-lg leading-relaxed text-indigo-100">Build, organize, and chat with a team of AI agents — from your inbox to your codebase.</p>
+                <div class="mt-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-inset ring-white/15"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" aria-hidden="true" class="lucide lucide-sparkles w-[15px] h-[15px]"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg> 10+ ready-to-use agents in the library</div>
+              </div>
+              <p class="text-sm text-indigo-200/80">© 2026 AgentHub. A demo dashboard.</p>
+            </div>
+          </aside>
+          <main class="flex w-full items-center justify-center px-6 py-12 lg:w-1/2">
+            <div class="w-full max-w-sm animate-slide-up">
+              <div class="mb-8 lg:hidden"><span class="flex items-center gap-2.5"><span class="flex h-9 w-9 items-center justify-center rounded-xl bg-brand"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bot" aria-hidden="true" class="lucide lucide-bot w-5 h-5 text-white"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg></span><span class="text-xl font-bold tracking-tight text-gray-900">AgentHub</span></span></div>
+              <h2 class="text-2xl font-bold tracking-tight text-gray-900">Welcome back</h2>
+              <p class="mt-1.5 text-sm text-gray-500">Sign in to manage your agents.</p>
+              <form id="login-form" class="mt-8 space-y-5">
+                <div class="space-y-1.5"><label for="email" class="block text-sm font-medium text-gray-700">Email</label><input id="email" type="email" autocomplete="email" placeholder="you@company.com" class="h-10 w-full rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"></div>
+                <div class="space-y-1.5"><label for="password" class="block text-sm font-medium text-gray-700">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="••••••••" class="h-10 w-full rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"></div>
+                <button type="submit" class="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-brand px-5 text-[15px] font-medium text-white shadow-sm shadow-indigo-600/20 transition-all hover:bg-brand-hover active:scale-[0.98]">Sign in <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-[18px] h-[18px]"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button>
+              </form>
+              <p class="mt-6 text-center text-xs text-gray-400">This is a demo — any email and password will work.</p>
+            </div>
+          </main>
+        </div></div>
+    <div id="overlay-root"></div>
+
+    <script src="./AgentHub — AI Agents Dashboard_files/lucide.min.js"></script>
+    <script>
+      /* ============================ Data ============================ */
+      const AVATARS = [
+        { id: 'indigo', icon: 'bot', bg: 'bg-indigo-100', fg: 'text-indigo-600' },
+        { id: 'emerald', icon: 'sparkles', bg: 'bg-emerald-100', fg: 'text-emerald-600' },
+        { id: 'rose', icon: 'rocket', bg: 'bg-rose-100', fg: 'text-rose-600' },
+        { id: 'amber', icon: 'brain-circuit', bg: 'bg-amber-100', fg: 'text-amber-600' },
+        { id: 'sky', icon: 'cpu', bg: 'bg-sky-100', fg: 'text-sky-600' },
+        { id: 'violet', icon: 'wand-2', bg: 'bg-violet-100', fg: 'text-violet-600' },
+      ];
+      const CATEGORIES = ['Productivity', 'Code', 'Writing', 'Research', 'Finance'];
+      const CAT_BADGE = {
+        Productivity: 'bg-indigo-50 text-indigo-700 ring-indigo-600/10',
+        Code: 'bg-sky-50 text-sky-700 ring-sky-600/10',
+        Writing: 'bg-violet-50 text-violet-700 ring-violet-600/10',
+        Research: 'bg-amber-50 text-amber-700 ring-amber-600/10',
+        Finance: 'bg-emerald-50 text-emerald-700 ring-emerald-600/10',
+      };
+
+      const LIBRARY = [
+        { id: 'lib-inbox-zero', name: 'Inbox Zero', description: 'Triages your email, drafts replies, and flags what needs you.', category: 'Productivity', avatarId: 'indigo' },
+        { id: 'lib-meeting-notes', name: 'Meeting Scribe', description: 'Joins calls, takes structured notes, and assigns action items.', category: 'Productivity', avatarId: 'emerald' },
+        { id: 'lib-code-reviewer', name: 'Code Reviewer', description: 'Reviews pull requests for bugs, style, and security issues.', category: 'Code', avatarId: 'sky' },
+        { id: 'lib-bug-hunter', name: 'Bug Hunter', description: 'Reproduces issues from stack traces and suggests fixes.', category: 'Code', avatarId: 'rose' },
+        { id: 'lib-copy-chief', name: 'Copy Chief', description: 'Writes and polishes marketing copy in your brand voice.', category: 'Writing', avatarId: 'violet' },
+        { id: 'lib-ghostwriter', name: 'Ghostwriter', description: 'Turns rough notes into clear blog posts and newsletters.', category: 'Writing', avatarId: 'amber' },
+        { id: 'lib-market-scout', name: 'Market Scout', description: 'Researches competitors and summarizes market trends.', category: 'Research', avatarId: 'indigo' },
+        { id: 'lib-paper-digest', name: 'Paper Digest', description: 'Reads academic papers and extracts the key findings.', category: 'Research', avatarId: 'sky' },
+        { id: 'lib-expense-bot', name: 'Expense Bot', description: 'Categorizes receipts and builds monthly spending reports.', category: 'Finance', avatarId: 'emerald' },
+        { id: 'lib-invoice-wrangler', name: 'Invoice Wrangler', description: 'Generates invoices and chases overdue payments politely.', category: 'Finance', avatarId: 'violet' },
+      ].map((a) => ({ ...a, shared: false, origin: 'library', sourceId: a.id }));
+
+      const SEED_TEAM = [
+        { id: 'team-standup-bot', name: 'Standup Bot', description: 'Collects daily updates and posts a digest to the team channel.', category: 'Productivity', avatarId: 'amber', addedBy: 'Maya Chen' },
+        { id: 'team-deploy-guard', name: 'Deploy Guard', description: 'Watches releases and rolls back on error-rate spikes.', category: 'Code', avatarId: 'rose', addedBy: 'Diego Alvarez' },
+        { id: 'team-brand-voice', name: 'Brand Voice', description: 'Keeps every customer message on-tone and on-brand.', category: 'Writing', avatarId: 'violet', addedBy: 'Priya Nair' },
+        { id: 'team-runway-analyst', name: 'Runway Analyst', description: 'Tracks burn rate and forecasts cash runway each week.', category: 'Finance', avatarId: 'emerald', addedBy: 'Sam Okoro' },
+      ].map((a) => ({ ...a, shared: true, origin: 'team', sourceId: a.id }));
+
+      const RESPONSES = {
+        Productivity: ["Done — I've added that to your task list and set a reminder.", "Here's a quick plan: I'll handle the scheduling and flag anything that needs your call.", 'I cleared three low-priority items so you can focus on the big one today.', 'Got it. Want me to block focus time on your calendar for this?', "I've sorted your inbox: 4 need replies, the rest I archived.", 'Noted. I can automate this so you never have to think about it again.', "On it. I'll check back in an hour with progress.", 'Quick win: batching these together saves you about 40 minutes a day.'],
+        Code: ['I spotted a null-check missing on line 42 — want me to patch it?', "Tests pass locally. There's one flaky test I'd recommend quarantining.", "Here's a cleaner approach using a map instead of nested loops.", 'That stack trace points to an off-by-one in the pagination logic.', 'I refactored the function — same behavior, half the lines.', 'I opened a PR with the fix and added a regression test.', 'The build is green. Bundle size dropped by 12kb.', 'Consider memoizing this; it re-renders on every keystroke right now.'],
+        Writing: ["Here's a punchier version that leads with the benefit.", 'I tightened the intro and cut the passive voice — reads much faster now.', 'Three headline options, ranked by clarity. Want more variations?', 'I matched your brand voice: warm, direct, no jargon.', 'I added a clear call-to-action at the end to drive replies.', "Here's the same idea in half the words.", 'I proofread it: two typos fixed, one comma splice resolved.', 'Strong hook. The ending could land harder — try a one-line kicker.'],
+        Research: ["Here's a summary of the top five sources, with the key takeaway from each.", 'The consensus is clear, but two recent studies push back — worth a look.', 'I found three competitors doing this; here is how their approaches differ.', "Short answer: yes, with caveats. I've outlined the trade-offs below.", 'The data trend is upward, roughly 18% year over year.', 'I cross-checked the claim — it holds up in 4 of 5 sources.', 'I pulled the most-cited paper and distilled it to three bullet points.', 'I mapped the landscape: incumbents, challengers, and one wildcard.'],
+        Finance: ["Here's your spend breakdown: 60% fixed costs, 25% payroll, 15% discretionary.", 'At the current burn rate, your runway is about 14 months.', 'I categorized 38 transactions — two looked like duplicates, flagged for review.', 'Revenue is up 9% month over month; churn ticked down slightly.', 'I built the invoice and queued a polite reminder for the overdue one.', 'Cutting this subscription saves roughly $2,400 a year.', "Here's a forecast for next quarter under three growth scenarios.", 'Cash position is healthy. You could safely reinvest about 20%.'],
+      };
+      const GREETINGS = ["Hi! I'm ready to help. What are we working on?", 'Hey there — ask me anything to get started.', "Hello! Tell me what you need and I'll take it from here."];
+      const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+      /* ============================ State ============================ */
+      const state = {
+        user: null,
+        myAgents: [],
+        teamSeed: SEED_TEAM,
+        library: LIBRARY,
+        chats: {},
+        greetings: {},
+        filter: 'All',
+        menuOpen: null, // 'user' | team agent id | null
+      };
+      let modal = null; // { mode:'create'|'edit', agentId }
+      let modalDraft = null; // { avatarId, shared }
+      let deleteTarget = null; // agent id
+      let typingFor = null;
+
+      const uid = (p = 'agent') => p + '-' + Math.random().toString(36).slice(2, 10);
+      const esc = (s) =>
+        String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+      const teamAgents = () => [...state.myAgents.filter((a) => a.shared), ...state.teamSeed];
+      const allAgents = () => [...state.myAgents, ...state.teamSeed, ...state.library];
+      const getAgent = (id) => allAgents().find((a) => a.id === id);
+      const isAdded = (agent) => {
+        const src = agent.sourceId || agent.id;
+        return state.myAgents.some((a) => (a.sourceId || a.id) === src);
+      };
+      const nameFromEmail = (email) =>
+        (email.split('@')[0] || 'there')
+          .split(/[._-]+/)
+          .filter(Boolean)
+          .map((p) => p[0].toUpperCase() + p.slice(1))
+          .join(' ') || 'There';
+      const initials = (name) =>
+        name.split(' ').filter(Boolean).slice(0, 2).map((p) => p[0].toUpperCase()).join('');
+
+      /* ============================ Routing ============================ */
+      function route() {
+        const h = (location.hash || '#/').replace(/^#/, '');
+        const parts = h.split('/').filter(Boolean); // e.g. ['chat','id']
+        if (parts[0] === 'chat' && parts[1]) return { name: 'chat', id: parts[1] };
+        if (['my-agents', 'team-agents', 'library', 'login'].includes(parts[0]))
+          return { name: parts[0] };
+        return { name: 'my-agents' };
+      }
+
+      /* ============================ Render bits ============================ */
+      function avatar(avatarId, size = 'md') {
+        const a = AVATARS.find((x) => x.id === avatarId) || AVATARS[0];
+        const box = size === 'sm' ? 'h-9 w-9 rounded-lg' : size === 'lg' ? 'h-14 w-14 rounded-2xl' : 'h-11 w-11 rounded-xl';
+        const ic = size === 'sm' ? 'w-[18px] h-[18px]' : size === 'lg' ? 'w-7 h-7' : 'w-[22px] h-[22px]';
+        return `<div class="flex shrink-0 items-center justify-center ${a.bg} ${box}"><i data-lucide="${a.icon}" class="${a.fg} ${ic}"></i></div>`;
+      }
+      const badge = (cat) =>
+        `<span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ring-inset ${CAT_BADGE[cat]}">${cat}</span>`;
+
+      function agentCard(agent, variant) {
+        const added = isAdded(agent);
+        let topRight = '';
+        if (variant === 'my') {
+          topRight = `<div class="flex items-center gap-1 transition-opacity duration-150 opacity-0 group-hover:opacity-100 focus-within:opacity-100 max-md:opacity-100">
+            <button data-action="edit-agent" data-id="${agent.id}" aria-label="Edit ${esc(agent.name)}" class="relative z-10 rounded-lg border border-gray-200 bg-white p-1.5 text-gray-500 shadow-sm transition-colors hover:border-gray-300 hover:bg-gray-50 hover:text-gray-900"><i data-lucide="pencil" class="w-4 h-4 pointer-events-none"></i></button>
+            <button data-action="ask-delete" data-id="${agent.id}" aria-label="Delete ${esc(agent.name)}" class="relative z-10 rounded-lg border border-gray-200 bg-white p-1.5 text-gray-500 shadow-sm transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-600"><i data-lucide="trash-2" class="w-4 h-4 pointer-events-none"></i></button>
+          </div>`;
+        } else if (variant === 'team') {
+          const open = state.menuOpen === agent.id;
+          const menu = open
+            ? `<div class="absolute right-0 top-full z-20 mt-1.5 w-48 animate-pop-in rounded-xl border border-gray-100 bg-white p-1.5 shadow-lg shadow-gray-900/10">
+                ${added
+                  ? `<span class="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-400"><i data-lucide="check" class="w-4 h-4"></i> Already added</span>`
+                  : `<button data-action="add-agent" data-id="${agent.id}" class="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"><i data-lucide="plus" class="w-4 h-4 text-gray-400 pointer-events-none"></i> Add to My Agents</button>`}
+              </div>`
+            : '';
+          topRight = `<div class="relative z-10">
+            <button data-action="toggle-menu" data-id="${agent.id}" aria-label="Agent options" class="rounded-lg p-1.5 text-gray-400 transition-all hover:bg-gray-100 hover:text-gray-700 opacity-0 group-hover:opacity-100 focus-within:opacity-100 max-md:opacity-100 ${open ? 'opacity-100 bg-gray-100' : ''}"><i data-lucide="more-vertical" class="w-[18px] h-[18px] pointer-events-none"></i></button>
+            ${menu}
+          </div>`;
+        }
+
+        let footerRight = '';
+        if (variant === 'team' && agent.addedBy) {
+          footerRight = `<span class="truncate text-xs text-gray-400">Added by ${esc(agent.addedBy)}</span>`;
+        } else if (variant === 'library') {
+          footerRight = added
+            ? `<span class="relative z-10 inline-flex items-center gap-1.5 text-xs font-medium text-gray-400"><i data-lucide="check" class="w-3.5 h-3.5"></i> Added</span>`
+            : `<button data-action="add-agent" data-id="${agent.id}" class="relative z-10 inline-flex h-8 items-center gap-1.5 rounded-lg border border-gray-300 bg-white px-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:border-gray-400"><i data-lucide="plus" class="w-[15px] h-[15px] pointer-events-none"></i> Add</button>`;
+        }
+
+        return `<div class="group relative flex flex-col rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md hover:shadow-gray-900/5">
+          <div class="flex items-start justify-between">${avatar(agent.avatarId, 'md')}${topRight}</div>
+          <h3 class="mt-4 text-base font-semibold text-gray-900">
+            <a href="#/chat/${agent.id}" class="rounded after:absolute after:inset-0 after:rounded-2xl">${esc(agent.name)}</a>
+          </h3>
+          <p class="mt-1 line-clamp-2 text-sm leading-relaxed text-gray-500">${esc(agent.description)}</p>
+          <div class="mt-4 flex items-center justify-between gap-2 pt-1">${badge(agent.category)}${footerRight}</div>
+        </div>`;
+      }
+
+      const grid = (cards) =>
+        `<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">${cards.join('')}</div>`;
+
+      /* ============================ Top nav / shell ============================ */
+      function topNav() {
+        const r = route();
+        const tabs = [
+          ['#/my-agents', 'My Agents'],
+          ['#/team-agents', 'Team Agents'],
+          ['#/library', 'Agent Library'],
+        ];
+        const active = (href) => '#/' + (r.name || '') === href;
+        const desktopTabs = tabs
+          .map(
+            ([href, label]) =>
+              `<a href="${href}" class="relative rounded-lg px-3 py-2 text-sm font-medium transition-colors ${active(href) ? 'text-brand' : 'text-gray-500 hover:text-gray-900'}">${label}${active(href) ? '<span class="absolute inset-x-3 -bottom-[17px] h-0.5 rounded-full bg-brand"></span>' : ''}</a>`,
+          )
+          .join('');
+        const mobileTabs = tabs
+          .map(
+            ([href, label]) =>
+              `<a href="${href}" class="flex-1 rounded-lg px-2 py-1.5 text-center text-[13px] font-medium transition-colors ${active(href) ? 'bg-brand-soft text-brand' : 'text-gray-500 hover:bg-gray-50'}">${label}</a>`,
+          )
+          .join('');
+        const menu =
+          state.menuOpen === 'user'
+            ? `<div class="absolute right-0 top-full z-50 mt-2 w-56 origin-top-right animate-pop-in rounded-xl border border-gray-100 bg-white p-1.5 shadow-lg shadow-gray-900/5">
+                <div class="px-3 py-2"><p class="truncate text-sm font-medium text-gray-900">${esc(state.user.name)}</p><p class="truncate text-xs text-gray-500">${esc(state.user.email)}</p></div>
+                <div class="my-1 h-px bg-gray-100"></div>
+                <button data-action="logout" class="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"><i data-lucide="log-out" class="w-4 h-4 text-gray-400 pointer-events-none"></i> Log out</button>
+              </div>`
+            : '';
+        return `<header class="sticky top-0 z-30 border-b border-gray-200/80 bg-white/80 backdrop-blur-md">
+          <div class="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4 sm:px-6">
+            ${logoMark()}
+            <nav class="hidden items-center gap-1 md:flex">${desktopTabs}</nav>
+            <div class="ml-auto flex items-center gap-2 sm:gap-3">
+              <button data-action="new-agent" class="inline-flex h-10 items-center gap-2 rounded-lg bg-brand px-4 text-sm font-medium text-white shadow-sm shadow-indigo-600/20 transition-all hover:bg-brand-hover active:scale-[0.97]"><i data-lucide="plus" class="w-[18px] h-[18px] pointer-events-none"></i><span class="hidden sm:inline">New Agent</span></button>
+              <div class="relative">
+                <button data-action="toggle-user" class="flex items-center gap-2 rounded-full py-1 pl-1 pr-2 transition-colors hover:bg-gray-100">
+                  <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brand text-sm font-semibold text-white">${esc(initials(state.user.name))}</span>
+                  <span class="hidden text-sm font-medium text-gray-700 sm:block">${esc(state.user.name)}</span>
+                  <i data-lucide="chevron-down" class="hidden w-4 h-4 text-gray-400 sm:block pointer-events-none"></i>
+                </button>
+                ${menu}
+              </div>
+            </div>
+          </div>
+          <nav class="flex items-center gap-1 border-t border-gray-100 px-2 py-1.5 md:hidden">${mobileTabs}</nav>
+        </header>`;
+      }
+      const logoMark = () =>
+        `<a href="#/my-agents" class="flex items-center gap-2"><span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand"><i data-lucide="bot" class="w-[18px] h-[18px] text-white"></i></span><span class="text-lg font-bold tracking-tight text-gray-900">AgentHub</span></a>`;
+
+      const shell = (inner) =>
+        `${topNav()}<main class="mx-auto max-w-6xl px-4 py-8 sm:px-6">${inner}</main>`;
+
+      /* ============================ Views ============================ */
+      function loginView() {
+        return `<div class="flex min-h-screen bg-white">
+          <aside class="relative hidden w-1/2 overflow-hidden bg-brand lg:block">
+            <div class="absolute inset-0 opacity-[0.18]" style="background-image:radial-gradient(circle at 1px 1px, white 1px, transparent 0);background-size:28px 28px;"></div>
+            <div class="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-white/10 blur-3xl"></div>
+            <div class="absolute -bottom-32 -left-16 h-96 w-96 rounded-full bg-indigo-400/20 blur-3xl"></div>
+            <div class="relative flex h-full flex-col justify-between p-12">
+              <div class="flex items-center gap-2.5 text-white"><span class="flex h-9 w-9 items-center justify-center rounded-xl bg-white/15"><i data-lucide="bot" class="w-5 h-5"></i></span><span class="text-xl font-bold tracking-tight">AgentHub</span></div>
+              <div class="max-w-md">
+                <h1 class="text-4xl font-bold leading-tight tracking-tight text-white">Your AI agents, all in one place.</h1>
+                <p class="mt-4 text-lg leading-relaxed text-indigo-100">Build, organize, and chat with a team of AI agents — from your inbox to your codebase.</p>
+                <div class="mt-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-inset ring-white/15"><i data-lucide="sparkles" class="w-[15px] h-[15px]"></i> 10+ ready-to-use agents in the library</div>
+              </div>
+              <p class="text-sm text-indigo-200/80">&copy; ${new Date().getFullYear()} AgentHub. A demo dashboard.</p>
+            </div>
+          </aside>
+          <main class="flex w-full items-center justify-center px-6 py-12 lg:w-1/2">
+            <div class="w-full max-w-sm animate-slide-up">
+              <div class="mb-8 lg:hidden"><span class="flex items-center gap-2.5"><span class="flex h-9 w-9 items-center justify-center rounded-xl bg-brand"><i data-lucide="bot" class="w-5 h-5 text-white"></i></span><span class="text-xl font-bold tracking-tight text-gray-900">AgentHub</span></span></div>
+              <h2 class="text-2xl font-bold tracking-tight text-gray-900">Welcome back</h2>
+              <p class="mt-1.5 text-sm text-gray-500">Sign in to manage your agents.</p>
+              <form id="login-form" class="mt-8 space-y-5">
+                <div class="space-y-1.5"><label for="email" class="block text-sm font-medium text-gray-700">Email</label><input id="email" type="email" autocomplete="email" placeholder="you@company.com" class="h-10 w-full rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30" /></div>
+                <div class="space-y-1.5"><label for="password" class="block text-sm font-medium text-gray-700">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="••••••••" class="h-10 w-full rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30" /></div>
+                <button type="submit" class="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-brand px-5 text-[15px] font-medium text-white shadow-sm shadow-indigo-600/20 transition-all hover:bg-brand-hover active:scale-[0.98]">Sign in <i data-lucide="arrow-right" class="w-[18px] h-[18px]"></i></button>
+              </form>
+              <p class="mt-6 text-center text-xs text-gray-400">This is a demo — any email and password will work.</p>
+            </div>
+          </main>
+        </div>`;
+      }
+
+      function myAgentsView() {
+        const count = state.myAgents.length;
+        const header = `<header class="flex items-end justify-between gap-4"><div>
+          <h1 class="text-2xl font-bold tracking-tight text-gray-900">My Agents</h1>
+          <p class="mt-1 text-sm text-gray-500">${count === 0 ? 'Agents you create or add will live here.' : count + ' agent' + (count === 1 ? '' : 's') + ' ready to work.'}</p>
+        </div></header>`;
+        const body =
+          count === 0
+            ? `<div class="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white/50 px-6 py-20 text-center animate-fade-in">
+                <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-soft"><i data-lucide="bot" class="w-7 h-7 text-brand"></i></div>
+                <h2 class="mt-5 text-lg font-semibold text-gray-900">You don't have any agents yet</h2>
+                <p class="mt-1.5 max-w-sm text-sm text-gray-500">Create your own agent, or add one from the Team or Library.</p>
+                <div class="mt-6"><button data-action="new-agent" class="inline-flex h-10 items-center rounded-lg border border-gray-300 bg-white px-4 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:border-gray-400">Add your first agent</button></div>
+              </div>`
+            : grid(state.myAgents.map((a) => agentCard(a, 'my')));
+        return shell(`<div class="space-y-6">${header}${body}</div>`);
+      }
+
+      function teamView() {
+        const list = teamAgents();
+        const body = grid(list.map((a) => agentCard(a, 'team')));
+        return shell(`<div class="space-y-6">
+          <header><h1 class="text-2xl font-bold tracking-tight text-gray-900">Team Agents</h1><p class="mt-1 text-sm text-gray-500">Agents your teammates have shared. Add any of them to your own workspace.</p></header>
+          ${body}
+        </div>`);
+      }
+
+      function libraryView() {
+        const filters = ['All', ...CATEGORIES];
+        const pills = filters
+          .map((f) => {
+            const a = state.filter === f;
+            return `<button data-action="filter" data-id="${f}" class="rounded-full px-4 py-1.5 text-sm font-medium transition-all ${a ? 'bg-brand text-white shadow-sm shadow-indigo-600/20' : 'bg-white text-gray-600 ring-1 ring-inset ring-gray-200 hover:bg-gray-50 hover:text-gray-900'}">${f}</button>`;
+          })
+          .join('');
+        const visible = state.filter === 'All' ? state.library : state.library.filter((a) => a.category === state.filter);
+        return shell(`<div class="space-y-6">
+          <header><h1 class="text-2xl font-bold tracking-tight text-gray-900">Agent Library</h1><p class="mt-1 text-sm text-gray-500">Ready-made agents you can add to your workspace in one click.</p></header>
+          <div class="flex flex-wrap gap-2">${pills}</div>
+          ${grid(visible.map((a) => agentCard(a, 'library')))}
+        </div>`);
+      }
+
+      function chatView(id) {
+        const agent = getAgent(id);
+        if (!agent) {
+          return `<div class="flex min-h-screen flex-col items-center justify-center gap-4 bg-gray-50 px-6 text-center">
+            <p class="text-lg font-semibold text-gray-900">Agent not found</p>
+            <p class="text-sm text-gray-500">This agent may have been deleted.</p>
+            <a href="#/my-agents" class="inline-flex h-10 items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 text-sm font-medium text-gray-700 hover:bg-gray-50"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to My Agents</a>
+          </div>`;
+        }
+        return `<div class="flex h-screen flex-col bg-gray-50">
+          <header class="flex items-center gap-3 border-b border-gray-200 bg-white/90 px-4 py-3 backdrop-blur-md sm:px-6">
+            <button data-action="chat-back" aria-label="Go back" class="-ml-1 rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900"><i data-lucide="arrow-left" class="w-5 h-5 pointer-events-none"></i></button>
+            ${avatar(agent.avatarId, 'sm')}
+            <div class="min-w-0"><h1 class="truncate text-sm font-semibold text-gray-900">${esc(agent.name)}</h1><span class="flex items-center gap-1.5 text-xs text-gray-500"><span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> Online</span></div>
+          </header>
+          <div id="msg-scroll" class="flex-1 overflow-y-auto px-4 py-6 sm:px-6"><div id="msg-list" class="mx-auto flex max-w-2xl flex-col gap-4"></div></div>
+          <div class="border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+            <form id="chat-form" class="mx-auto flex max-w-2xl items-center gap-2" data-id="${agent.id}">
+              <input id="chat-input" autocomplete="off" placeholder="Message ${esc(agent.name)}…" aria-label="Message" class="h-11 flex-1 rounded-xl border border-gray-300 bg-gray-50 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:border-brand focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand/30" />
+              <button type="submit" aria-label="Send message" class="flex h-11 w-11 items-center justify-center rounded-lg bg-brand text-white shadow-sm shadow-indigo-600/20 transition-all hover:bg-brand-hover active:scale-[0.97]"><i data-lucide="send-horizontal" class="w-[18px] h-[18px] pointer-events-none"></i></button>
+            </form>
+          </div>
+        </div>`;
+      }
+
+      function bubble(role, avatarId, inner) {
+        const isUser = role === 'user';
+        const av = isUser ? '' : `<div class="flex shrink-0 items-center justify-center h-8 w-8 rounded-lg ${(AVATARS.find((x) => x.id === avatarId) || AVATARS[0]).bg}"><i data-lucide="${(AVATARS.find((x) => x.id === avatarId) || AVATARS[0]).icon}" class="${(AVATARS.find((x) => x.id === avatarId) || AVATARS[0]).fg} w-[18px] h-[18px]"></i></div>`;
+        return `<div class="flex animate-slide-up items-end gap-2.5 ${isUser ? 'justify-end' : 'justify-start'}">${av}<div class="max-w-[78%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${isUser ? 'rounded-br-md bg-brand text-white' : 'rounded-bl-md bg-gray-100 text-gray-800'}">${inner}</div></div>`;
+      }
+
+      function renderMessages(id) {
+        const agent = getAgent(id);
+        if (!agent) return;
+        const list = document.getElementById('msg-list');
+        if (!list) return;
+        const msgs = state.chats[id] || [];
+        let html = bubble('agent', agent.avatarId, esc(state.greetings[id]));
+        for (const m of msgs) html += bubble(m.role, agent.avatarId, esc(m.text));
+        if (typingFor === id) {
+          const dots = [0, 1, 2]
+            .map((i) => `<span class="h-2 w-2 rounded-full bg-gray-400 animate-dot-bounce" style="animation-delay:${i * 0.16}s"></span>`)
+            .join('');
+          html += bubble('agent', agent.avatarId, `<span class="flex items-center gap-1 py-1">${dots}</span>`);
+        }
+        list.innerHTML = html;
+        lucide.createIcons();
+        const sc = document.getElementById('msg-scroll');
+        if (sc) sc.scrollTop = sc.scrollHeight;
+      }
+
+      /* ============================ Modal ============================ */
+      function modalView() {
+        if (!modal) return '';
+        const editing = modal.mode === 'edit' ? getAgent(modal.agentId) : null;
+        const d = modalDraft;
+        const avatarTiles = AVATARS.map((a) => {
+          const sel = d.avatarId === a.id;
+          return `<button type="button" data-action="pick-avatar" data-id="${a.id}" data-avatar-tile="${a.id}" aria-label="Avatar ${a.id}" class="relative flex h-11 w-11 items-center justify-center rounded-xl ${a.bg} transition-all ${sel ? 'ring-2 ring-brand ring-offset-2' : 'ring-1 ring-inset ring-black/5 hover:scale-105'}">
+            <i data-lucide="${a.icon}" class="${a.fg} w-5 h-5 pointer-events-none"></i>
+            <span data-check class="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-brand ${sel ? '' : 'hidden'}"><i data-lucide="check" class="w-2.5 h-2.5 text-white"></i></span>
+          </button>`;
+        }).join('');
+        const cats = CATEGORIES.map((c) => `<option value="${c}" ${editing && editing.category === c ? 'selected' : ''}>${c}</option>`).join('');
+        const ctl = 'w-full rounded-lg border border-gray-300 bg-white px-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30';
+        return `<div class="fixed inset-0 z-50 flex items-end justify-center sm:items-center">
+          <div data-action="close-modal" class="absolute inset-0 bg-gray-900/40 backdrop-blur-[2px] animate-fade-in"></div>
+          <div role="dialog" aria-modal="true" class="relative z-10 w-full bg-white shadow-2xl shadow-gray-900/10 rounded-t-2xl sm:rounded-2xl sm:max-w-lg animate-slide-up max-h-[92vh] flex flex-col">
+            <header class="flex items-center justify-between border-b border-gray-100 px-6 py-4"><h2 class="text-lg font-semibold text-gray-900">${editing ? 'Edit agent' : 'New agent'}</h2><button data-action="close-modal" aria-label="Close" class="-mr-2 rounded-lg p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600"><i data-lucide="x" class="w-[18px] h-[18px] pointer-events-none"></i></button></header>
+            <div class="flex-1 overflow-y-auto px-6 py-5"><div class="space-y-5">
+              <div class="space-y-1.5"><label for="f-name" class="block text-sm font-medium text-gray-700">Agent name</label><input id="f-name" class="${ctl} h-10" placeholder="e.g. Research Assistant" value="${editing ? esc(editing.name) : ''}" /></div>
+              <div class="space-y-1.5"><label for="f-desc" class="block text-sm font-medium text-gray-700">Description</label><textarea id="f-desc" rows="3" class="${ctl} py-2 resize-none" placeholder="What does this agent do?">${editing ? esc(editing.description) : ''}</textarea></div>
+              <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <div class="space-y-1.5"><label for="f-api" class="block text-sm font-medium text-gray-700">API endpoint</label><input id="f-api" class="${ctl} h-10" placeholder="https://api.example.com/v1" value="${editing && editing.apiEndpoint ? esc(editing.apiEndpoint) : ''}" /></div>
+                <div class="space-y-1.5"><label for="f-hook" class="block text-sm font-medium text-gray-700">Webhook URL</label><input id="f-hook" class="${ctl} h-10" placeholder="https://hooks.example.com/…" value="${editing && editing.webhookUrl ? esc(editing.webhookUrl) : ''}" /></div>
+              </div>
+              <div class="space-y-1.5"><label for="f-cat" class="block text-sm font-medium text-gray-700">Category</label><select id="f-cat" class="${ctl} h-10 pr-8 cursor-pointer">${cats}</select></div>
+              <div class="space-y-2"><span class="block text-sm font-medium text-gray-700">Agent avatar</span><div class="flex flex-wrap gap-2.5">${avatarTiles}</div></div>
+              <div class="flex items-center justify-between rounded-xl bg-gray-50 px-4 py-3">
+                <div><p class="text-sm font-medium text-gray-900">Share with team</p><p class="text-xs text-gray-500">Make this agent visible on the Team Agents page.</p></div>
+                <button type="button" data-action="toggle-share" data-share-toggle role="switch" aria-checked="${d.shared}" class="relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors ${d.shared ? 'bg-brand' : 'bg-gray-300'}"><span class="inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform ${d.shared ? 'translate-x-[22px]' : 'translate-x-0.5'}"></span></button>
+              </div>
+            </div></div>
+            <footer class="flex justify-end gap-3 border-t border-gray-100 px-6 py-4">
+              <button data-action="close-modal" class="inline-flex h-10 items-center rounded-lg border border-gray-300 bg-white px-4 text-sm font-medium text-gray-700 hover:bg-gray-50">Cancel</button>
+              <button data-action="save-agent" class="inline-flex h-10 items-center rounded-lg bg-brand px-4 text-sm font-medium text-white shadow-sm shadow-indigo-600/20 hover:bg-brand-hover">Save agent</button>
+            </footer>
+          </div>
+        </div>`;
+      }
+
+      function deleteView() {
+        if (!deleteTarget) return '';
+        const agent = getAgent(deleteTarget);
+        if (!agent) return '';
+        return `<div class="fixed inset-0 z-50 flex items-end justify-center sm:items-center">
+          <div data-action="cancel-delete" class="absolute inset-0 bg-gray-900/40 backdrop-blur-[2px] animate-fade-in"></div>
+          <div role="dialog" aria-modal="true" class="relative z-10 w-full bg-white shadow-2xl rounded-t-2xl sm:rounded-2xl sm:max-w-md animate-slide-up">
+            <header class="flex items-center justify-between border-b border-gray-100 px-6 py-4"><h2 class="text-lg font-semibold text-gray-900">Delete agent</h2><button data-action="cancel-delete" aria-label="Close" class="-mr-2 rounded-lg p-2 text-gray-400 hover:bg-gray-100"><i data-lucide="x" class="w-[18px] h-[18px] pointer-events-none"></i></button></header>
+            <div class="px-6 py-5"><div class="flex gap-4"><div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-50"><i data-lucide="alert-triangle" class="w-5 h-5 text-red-600"></i></div><p class="pt-1.5 text-sm leading-relaxed text-gray-600">Are you sure you want to delete <span class="font-semibold text-gray-900">${esc(agent.name)}</span>? This action can't be undone.</p></div></div>
+            <footer class="flex justify-end gap-3 border-t border-gray-100 px-6 py-4">
+              <button data-action="cancel-delete" class="inline-flex h-10 items-center rounded-lg border border-gray-300 bg-white px-4 text-sm font-medium text-gray-700 hover:bg-gray-50">Cancel</button>
+              <button data-action="confirm-delete" class="inline-flex h-10 items-center rounded-lg bg-red-600 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700">Delete</button>
+            </footer>
+          </div>
+        </div>`;
+      }
+
+      /* ============================ Render loop ============================ */
+      function render() {
+        const r = route();
+        if (!state.user && r.name !== 'login') { location.hash = '#/login'; return; }
+        if (state.user && r.name === 'login') { location.hash = '#/my-agents'; return; }
+
+        const app = document.getElementById('app');
+        if (r.name === 'login') app.innerHTML = loginView();
+        else if (r.name === 'chat') app.innerHTML = chatView(r.id);
+        else if (r.name === 'team-agents') app.innerHTML = teamView();
+        else if (r.name === 'library') app.innerHTML = libraryView();
+        else app.innerHTML = myAgentsView();
+
+        document.getElementById('overlay-root').innerHTML = modalView() + deleteView();
+        lucide.createIcons();
+        if (r.name === 'chat') {
+          if (!state.greetings[r.id]) state.greetings[r.id] = rand(GREETINGS);
+          renderMessages(r.id);
+          const input = document.getElementById('chat-input');
+          if (input) input.focus();
+        }
+      }
+
+      /* ============================ Events ============================ */
+      window.addEventListener('hashchange', render);
+
+      document.addEventListener('submit', (e) => {
+        if (e.target.id === 'login-form') {
+          e.preventDefault();
+          const email = (document.getElementById('email').value || '').trim();
+          const password = document.getElementById('password').value || '';
+          if (!email || !password) return;
+          state.user = { email, name: nameFromEmail(email) };
+          location.hash = '#/my-agents';
+        } else if (e.target.id === 'chat-form') {
+          e.preventDefault();
+          const id = e.target.dataset.id;
+          const input = document.getElementById('chat-input');
+          const text = (input.value || '').trim();
+          if (!text || typingFor) return;
+          (state.chats[id] = state.chats[id] || []).push({ role: 'user', text });
+          input.value = '';
+          typingFor = id;
+          renderMessages(id);
+          input.focus();
+          const agent = getAgent(id);
+          setTimeout(() => {
+            (state.chats[id] = state.chats[id] || []).push({ role: 'agent', text: rand(RESPONSES[agent.category] || RESPONSES.Productivity) });
+            typingFor = null;
+            renderMessages(id);
+          }, 1000 + Math.random() * 900);
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        const el = e.target.closest('[data-action]');
+        if (!el) {
+          if (state.menuOpen) { state.menuOpen = null; render(); }
+          return;
+        }
+        const action = el.dataset.action;
+        const id = el.dataset.id;
+
+        // Avatar pick / share toggle update the modal in place (no re-render → keeps text inputs).
+        if (action === 'pick-avatar') {
+          modalDraft.avatarId = id;
+          document.querySelectorAll('[data-avatar-tile]').forEach((t) => {
+            const sel = t.dataset.avatarTile === id;
+            t.classList.toggle('ring-2', sel);
+            t.classList.toggle('ring-brand', sel);
+            t.classList.toggle('ring-offset-2', sel);
+            t.classList.toggle('ring-1', !sel);
+            t.classList.toggle('ring-inset', !sel);
+            t.classList.toggle('ring-black/5', !sel);
+            const chk = t.querySelector('[data-check]');
+            if (chk) chk.classList.toggle('hidden', !sel);
+          });
+          return;
+        }
+        if (action === 'toggle-share') {
+          modalDraft.shared = !modalDraft.shared;
+          el.setAttribute('aria-checked', String(modalDraft.shared));
+          el.classList.toggle('bg-brand', modalDraft.shared);
+          el.classList.toggle('bg-gray-300', !modalDraft.shared);
+          const knob = el.querySelector('span');
+          knob.classList.toggle('translate-x-[22px]', modalDraft.shared);
+          knob.classList.toggle('translate-x-0.5', !modalDraft.shared);
+          return;
+        }
+
+        switch (action) {
+          case 'new-agent':
+            modal = { mode: 'create' };
+            modalDraft = { avatarId: AVATARS[0].id, shared: false };
+            state.menuOpen = null;
+            render();
+            break;
+          case 'edit-agent': {
+            const a = getAgent(id);
+            modal = { mode: 'edit', agentId: id };
+            modalDraft = { avatarId: a.avatarId, shared: a.shared };
+            render();
+            break;
+          }
+          case 'close-modal':
+            modal = null; modalDraft = null; render();
+            break;
+          case 'save-agent': {
+            const name = (document.getElementById('f-name').value || '').trim();
+            if (!name) { document.getElementById('f-name').focus(); return; }
+            const data = {
+              name,
+              description: (document.getElementById('f-desc').value || '').trim(),
+              apiEndpoint: (document.getElementById('f-api').value || '').trim(),
+              webhookUrl: (document.getElementById('f-hook').value || '').trim(),
+              category: document.getElementById('f-cat').value,
+              avatarId: modalDraft.avatarId,
+              shared: modalDraft.shared,
+            };
+            if (modal.mode === 'edit') {
+              const a = state.myAgents.find((x) => x.id === modal.agentId);
+              if (a) Object.assign(a, data);
+            } else {
+              const newAgent = { ...data, id: uid(), origin: 'mine' };
+              newAgent.sourceId = newAgent.id;
+              state.myAgents.unshift(newAgent);
+            }
+            modal = null; modalDraft = null; render();
+            break;
+          }
+          case 'ask-delete':
+            deleteTarget = id; state.menuOpen = null; render();
+            break;
+          case 'cancel-delete':
+            deleteTarget = null; render();
+            break;
+          case 'confirm-delete':
+            state.myAgents = state.myAgents.filter((a) => a.id !== deleteTarget);
+            deleteTarget = null; render();
+            break;
+          case 'add-agent': {
+            const src = getAgent(id);
+            if (src && !isAdded(src)) {
+              const copy = { ...src, id: uid(), origin: 'mine', shared: false, addedBy: undefined, sourceId: src.sourceId || src.id };
+              state.myAgents.unshift(copy);
+            }
+            state.menuOpen = null; render();
+            break;
+          }
+          case 'filter':
+            state.filter = id; render();
+            break;
+          case 'toggle-menu':
+            state.menuOpen = state.menuOpen === id ? null : id;
+            render();
+            break;
+          case 'toggle-user':
+            state.menuOpen = state.menuOpen === 'user' ? null : 'user';
+            render();
+            break;
+          case 'logout':
+            state.user = null; state.menuOpen = null; location.hash = '#/login';
+            break;
+          case 'chat-back':
+            if (history.length > 1) history.back(); else location.hash = '#/my-agents';
+            break;
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (modal) { modal = null; modalDraft = null; render(); }
+          else if (deleteTarget) { deleteTarget = null; render(); }
+          else if (state.menuOpen) { state.menuOpen = null; render(); }
+        }
+      });
+
+      /* ============================ Boot ============================ */
+      if (!location.hash) location.hash = '#/login';
+      render();
+    </script>
+  
+
+</body></html>
